@@ -17,6 +17,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@testing-library/react": "^14.0.0",
     "@tsconfig/recommended": "^1.0.2",
     "@types/jest": "^29.4.0",
