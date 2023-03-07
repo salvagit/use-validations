@@ -30,7 +30,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/salvagit/use-validations.git"
+    "url": "https://github.com/salvagit/use-validations"
+  },
+  "bugs": {
+    "url": "https://github.com/salvagit/use-validations/issues"
   },
   "release": {
     "branches": [
