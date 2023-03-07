@@ -31,6 +31,9 @@
     "url": "https://github.com/salvagit/use-validations.git"
   },
   "release": {
-    "branches": ["main", "next"]
+    "branches": [
+      "main",
+      "next"
+    ]
   }
 }
