@@ -41,7 +41,6 @@
       "next"
     ]
   },
-  "private": "false",
   "publishConfig": {
     "access": "public"
   }

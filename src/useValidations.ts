@@ -9,12 +9,17 @@ export type HandleInputChangeType = (
 
 export const noEmpty = (value: string) => (isEmpty(value) ? "required" : null);
 
-function useValidations<T>(
+export type HookParams<T> = {
   defaultData: T,
   validators: {
     [field: string]: (v: string, data?: T) => string | null;
   }
-): {
+}
+
+function useValidations<T>({
+  defaultData,
+  validators
+}: HookParams<T>): {
   data: T;
   errors: any; // @todo fix this type.
   emptyForm: boolean;
