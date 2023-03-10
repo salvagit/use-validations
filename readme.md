@@ -1,8 +1,8 @@
 ## use validations.
 
 @todos:
- - first commit
- - publish
- - docs
- - landing
- - fix react dependency 
+ - [x] first commit
+ - [ ] publish
+ - [ ] docs
+ - [ ] landing
+ - [ ] fix react dependency 
