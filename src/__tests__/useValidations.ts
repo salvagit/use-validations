@@ -26,7 +26,7 @@ const FAKE_VALIDATORS = {
 describe("test useValidation custom hook", () => {
   test("basic validation", () => {
     const { result } = renderHook(() =>
-      useValidations<DataType>(FAKE_DEFAULT_DATA, FAKE_VALIDATORS)
+      useValidations<DataType>({ defaultData: FAKE_DEFAULT_DATA, validators: FAKE_VALIDATORS })
     );
 
     act(() => result.current.handleInputChange("email")(FAKE_USER.email));
@@ -38,7 +38,7 @@ describe("test useValidation custom hook", () => {
   test("relative validation", () => {
     const PASSWORD_NOT_MATCH = "password not match";
 
-    const data = { ...FAKE_DEFAULT_DATA, confirm_password: "" };
+    const defaultData = { ...FAKE_DEFAULT_DATA, confirm_password: "" };
 
     const validators = {
       ...FAKE_VALIDATORS,
@@ -47,7 +47,7 @@ describe("test useValidation custom hook", () => {
     };
 
     const { result } = renderHook(() =>
-      useValidations<DataType>(data, validators)
+      useValidations<DataType>({ defaultData, validators })
     );
 
     act(() => result.current.handleInputChange("email")(FAKE_USER.email));
