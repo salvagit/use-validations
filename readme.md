@@ -8,13 +8,13 @@ Pretty simple validator example,
 import useValidations, { noEmpty } from "use-validations";
 
 function App()  {
-  const  {  handleInputChange,  data,  errors  }  = useValidations<{  name:  string  }>({
+  const { handleInputChange, data, errors } = useValidations<{ name: string }>({
     defaultData: { name: "" },
     validators: { name: noEmpty }
   });
 
   return (
-    <div className="App">
+    <div>
       <label htmlFor="user-name">Username</label>
 
       <input
@@ -40,13 +40,16 @@ Example of a custom validator with more than one validation:
 import useValidations from "use-validations";
 import differenceInBusinessDays from "date-fns/differenceInBusinessDays";
 
-const customValidator =  (date:  string)  =>  {
+const customValidator = (date: string) => {
+  // get the difference in days between the selected date and today.
   const diffDays = differenceInBusinessDays(new Date(date), new Date());
-  // if the difference of days is less than or equal to -1, it is today or before today.
+
+  // if the difference is less than or equal to -1, it is today or before today.
   if (diffDays <= -1) {
     return "the date should be higher than today.";
   }
-  // if the difference in days is greater than or equal to 3, it is 3 days or more in the future.
+
+  // if the difference is greater than or equal to 3, it is 3 days or more in the future.
   if (diffDays >= 3) {
     return "the date should not be more than 3 days after the current date.";
   }
@@ -56,15 +59,15 @@ const customValidator =  (date:  string)  =>  {
 
 function App()  {
   const { handleInputChange, data, errors } = useValidations<{
-    scheduleDate:  string;
-	}>({
+    scheduleDate: string;
+  }>({
     defaultData: { scheduleDate: "" },
     validators: { scheduleDate: customValidator },
   });
 
   return (
-    <div  className="App">
-      <label  htmlFor="schedule-date">Schedule Date</label>
+    <div>
+      <label htmlFor="schedule-date">Schedule Date</label>
 
       <input
         id="schedule-date"
@@ -81,7 +84,14 @@ function App()  {
 export default App;
 ```
 
-### return values.
+### Parameters.
+
+| Key               | Value                                                               |
+| ------------------|---------------------------------------------------------------------|
+| defaultData       | Object with the field name as key and value as value :).            |
+| validators        | Object with the field name as key and validator function as value.  |
+
+### Return values.
 
 | Key               | Value                                                                                                               |
 | ------------------|-------------------------------------------------------------------------------------------------------------------- |
