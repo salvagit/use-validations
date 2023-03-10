@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "custom hook validator.",
   "main": "dist/index.js",
+  "keywords": ["react", "custom", "hook", "validations", "validate", "field", "form"],
   "files": [
     "dist"
   ],
