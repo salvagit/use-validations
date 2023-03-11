@@ -38,11 +38,11 @@ Example of a custom validator with more than one validation:
 
 ```
 import useValidations from "use-validations";
-import differenceInBusinessDays from "date-fns/differenceInBusinessDays";
+import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 
 const customValidator = (date: string) => {
   // get the difference in days between the selected date and today.
-  const diffDays = differenceInBusinessDays(new Date(date), new Date());
+  const diffDays = differenceInCalendarDays(new Date(date), new Date());
 
   // if the difference is less than or equal to -1, it is today or before today.
   if (diffDays <= -1) {
