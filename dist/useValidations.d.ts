@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
-export declare type HandleInputChangeType = (field: string) => (value: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+export type HandleInputChangeType = (field: string) => (value: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 export declare const noEmpty: (value: string) => "required" | null;
-export declare type HookParams<T> = {
+export type HookParams<T> = {
     defaultData: T;
     validators: {
         [field: string]: (v: string, data?: T) => string | null;
