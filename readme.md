@@ -4,7 +4,7 @@ use validations provides a custom hook to do validations in React in a simple an
 
 Pretty simple validator example,
 
-```
+```jsx
 import useValidations, { noEmpty } from "use-validations";
 
 function App()  {
@@ -36,7 +36,7 @@ the validator function receives a string with the value to validate and stores i
 
 Example of a custom validator with more than one validation:
 
-```
+```jsx
 import useValidations from "use-validations";
 import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 
