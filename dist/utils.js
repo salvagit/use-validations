@@ -35,4 +35,3 @@ function isEmpty(value) {
 exports.isEmpty = isEmpty;
 const isString = (value) => typeof value === "string";
 exports.isString = isString;
-//# sourceMappingURL=utils.js.map

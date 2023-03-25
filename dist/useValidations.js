@@ -46,4 +46,3 @@ function useValidations({ defaultData, validators }) {
     };
 }
 exports.default = useValidations;
-//# sourceMappingURL=useValidations.js.map
