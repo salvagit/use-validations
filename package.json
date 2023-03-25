@@ -4,7 +4,6 @@
   "description": "custom hook validator.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "keywords": [
     "react",
     "custom",
