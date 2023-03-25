@@ -1,8 +1,11 @@
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var objectProto = Object.prototype;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isString = exports.isEmpty = void 0;
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+const objectProto = Object.prototype;
 function isPrototype(value) {
-    var Ctor = value && value.constructor;
-    var proto = (typeof Ctor === "function" && Ctor.prototype) || objectProto;
+    const Ctor = value && value.constructor;
+    const proto = (typeof Ctor === "function" && Ctor.prototype) || objectProto;
     return value === proto;
 }
 function isEmpty(value) {
@@ -22,13 +25,14 @@ function isEmpty(value) {
     if (isPrototype(value)) {
         return !Object.keys(value).length;
     }
-    for (var key in value) {
+    for (const key in value) {
         if (hasOwnProperty.call(value, key)) {
             return false;
         }
     }
     return true;
 }
-var isString = function (value) { return typeof value === "string"; };
-export { isEmpty, isString };
+exports.isEmpty = isEmpty;
+const isString = (value) => typeof value === "string";
+exports.isString = isString;
 //# sourceMappingURL=utils.js.map
