@@ -1,8 +1,8 @@
-const hasOwnProperty = Object.prototype.hasOwnProperty;
-const objectProto = Object.prototype;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var objectProto = Object.prototype;
 function isPrototype(value) {
-    const Ctor = value && value.constructor;
-    const proto = (typeof Ctor === "function" && Ctor.prototype) || objectProto;
+    var Ctor = value && value.constructor;
+    var proto = (typeof Ctor === "function" && Ctor.prototype) || objectProto;
     return value === proto;
 }
 function isEmpty(value) {
@@ -22,13 +22,13 @@ function isEmpty(value) {
     if (isPrototype(value)) {
         return !Object.keys(value).length;
     }
-    for (const key in value) {
+    for (var key in value) {
         if (hasOwnProperty.call(value, key)) {
             return false;
         }
     }
     return true;
 }
-const isString = (value) => typeof value === "string";
+var isString = function (value) { return typeof value === "string"; };
 export { isEmpty, isString };
 //# sourceMappingURL=utils.js.map
