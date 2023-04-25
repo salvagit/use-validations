@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.noEmpty = void 0;
+exports.isRequired = void 0;
 const react_1 = require("react");
 const utils_1 = require("./utils");
-const noEmpty = (value) => ((0, utils_1.isEmpty)(value) ? "required" : null);
-exports.noEmpty = noEmpty;
+const isRequired = (value) => ((0, utils_1.isEmpty)(value) ? "required" : null);
+exports.isRequired = isRequired;
 function useValidations({ defaultData, validators }) {
     const [data, setData] = (0, react_1.useState)(defaultData);
     const [errors, setErrors] = (0, react_1.useState)([]);

@@ -7,7 +7,7 @@ export type HandleInputChangeType = (
   value: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 ) => void;
 
-export const noEmpty = (value: string) => (isEmpty(value) ? "required" : null);
+export const isRequired = (value: string) => (isEmpty(value) ? "required" : null);
 
 export type HookParams<T> = {
   defaultData: T,
