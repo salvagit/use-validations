@@ -5,12 +5,12 @@ use validations provides a custom hook to do validations in React in a simple an
 Pretty simple validator example,
 
 ```jsx
-import useValidations, { noEmpty } from "use-validations";
+import useValidations, { isRequired } from "use-validations";
 
 function App()  {
   const { handleInputChange, data, errors } = useValidations<{ name: string }>({
     defaultData: { name: "" },
-    validators: { name: noEmpty }
+    validators: { name: isRequired }
   });
 
   return (
