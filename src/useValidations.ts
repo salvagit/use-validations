@@ -1,20 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { isEmpty, isString } from "./utils";
-
-export type HandleInputChangeType = (
-  field: string
-) => (
-  value: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-) => void;
-
-export const isRequired = (value: string) => (isEmpty(value) ? "required" : null);
-
-export type HookParams<T> = {
-  defaultData: T,
-  validators: {
-    [field: string]: (v: string, data?: T) => string | null;
-  }
-}
+import { HandleInputChangeType, HookParams } from "./types";
 
 function useValidations<T>({
   defaultData,

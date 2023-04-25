@@ -20,3 +20,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const useValidations_1 = __importDefault(require("./useValidations"));
 exports.default = useValidations_1.default;
 __exportStar(require("./useValidations"), exports);
+__exportStar(require("./types"), exports);
+__exportStar(require("./validators"), exports);
