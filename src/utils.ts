@@ -17,15 +17,9 @@ function isEmpty(value: unknown) {
   if (
     Array.isArray(value) ||
     typeof value === "string"
-    // typeof value.splice === "function"
   ) {
     return !value.length;
   }
-
-  // const tag = value.toString();
-  // if (tag == "[object Map]" || tag == "[object Set]") {
-  //   return !value.size;
-  // }
 
   if (isPrototype(value as any)) {
     return !Object.keys(value as any).length;
