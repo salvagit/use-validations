@@ -12,3 +12,9 @@ export type HookParams<T> = {
     [field: string]: (v: string, data?: T) => string | null;
   }
 }
+
+export type Stringify<T> = {
+  [K in keyof T]?: string | null;
+};
+
+export type Errors<T> = Stringify<T> | {};

@@ -4,7 +4,7 @@ const react_1 = require("react");
 const utils_1 = require("./utils");
 function useValidations({ defaultData, validators }) {
     const [data, setData] = (0, react_1.useState)(defaultData);
-    const [errors, setErrors] = (0, react_1.useState)([]);
+    const [errors, setErrors] = (0, react_1.useState)({});
     const hasErrors = Object.values(errors).some(utils_1.isString);
     const emptyForm = data && Object.values(data).every(utils_1.isEmpty);
     const handleInputChange = (field) => (value) => {

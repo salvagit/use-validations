@@ -1,13 +1,10 @@
 import { ChangeEvent, useState } from "react";
 import { isEmpty, isString } from "./utils";
-import { HandleInputChangeType, HookParams } from "./types";
+import { HandleInputChangeType, HookParams, Errors } from "./types";
 
-function useValidations<T>({
-  defaultData,
-  validators
-}: HookParams<T>): {
+function useValidations<T>({ defaultData, validators }: HookParams<T>): {
   data: T;
-  errors: any; // @todo fix this type.
+  errors: Errors<T>;
   emptyForm: boolean;
   handleInputChange: HandleInputChangeType;
   hasErrors: boolean;
@@ -16,9 +13,9 @@ function useValidations<T>({
 } {
   const [data, setData] = useState<T>(defaultData);
 
-  const [errors, setErrors] = useState<{ [x: string]: null | string }[]>([]);
+  const [errors, setErrors] = useState<Errors<T>>({});
 
-  const hasErrors = Object.values(errors as {}).some(isString);
+  const hasErrors = Object.values(errors as Errors<T>).some(isString);
   const emptyForm = data && Object.values(data).every(isEmpty);
 
   const handleInputChange =
