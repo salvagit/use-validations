@@ -1,15 +1,7 @@
-import { ChangeEvent } from "react";
-export type HandleInputChangeType = (field: string) => (value: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-export declare const noEmpty: (value: string) => "required" | null;
-export type HookParams<T> = {
-    defaultData: T;
-    validators: {
-        [field: string]: (v: string, data?: T) => string | null;
-    };
-};
+import { HandleInputChangeType, HookParams, Errors } from "./types";
 declare function useValidations<T>({ defaultData, validators }: HookParams<T>): {
     data: T;
-    errors: any;
+    errors: Errors<T>;
     emptyForm: boolean;
     handleInputChange: HandleInputChangeType;
     hasErrors: boolean;

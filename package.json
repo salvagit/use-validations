@@ -1,6 +1,6 @@
 {
   "name": "use-validations",
-  "version": "0.0.0-development",
+  "version": "1.0.10",
   "description": "custom hook validator.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "test": "jest",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "build": "rm -rf dist && tsc"
   },
   "author": "s@salva.io",
   "license": "MIT",

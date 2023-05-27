@@ -1,15 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.noEmpty = void 0;
-const react_1 = require("react");
-const utils_1 = require("./utils");
-const noEmpty = (value) => ((0, utils_1.isEmpty)(value) ? "required" : null);
-exports.noEmpty = noEmpty;
+import { useState } from "react";
+import { isEmpty, isString } from "./utils";
 function useValidations({ defaultData, validators }) {
-    const [data, setData] = (0, react_1.useState)(defaultData);
-    const [errors, setErrors] = (0, react_1.useState)([]);
-    const hasErrors = Object.values(errors).some(utils_1.isString);
-    const emptyForm = data && Object.values(data).every(utils_1.isEmpty);
+    const [data, setData] = useState(defaultData);
+    const [errors, setErrors] = useState({});
+    const hasErrors = Object.values(errors).some(isString);
+    const emptyForm = data && Object.values(data).every(isEmpty);
     const handleInputChange = (field) => (value) => {
         if (typeof value !== "string") {
             value = value.target.value;
@@ -45,4 +40,4 @@ function useValidations({ defaultData, validators }) {
         resetData,
     };
 }
-exports.default = useValidations;
+export default useValidations;
