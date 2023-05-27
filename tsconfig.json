@@ -23,6 +23,11 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example", "**/__tests__"]
 }
