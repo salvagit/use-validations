@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "test": "jest",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "build": "rm -rf dist && tsc"
   },
   "author": "s@salva.io",
   "license": "MIT",
