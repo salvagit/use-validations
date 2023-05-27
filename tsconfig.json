@@ -21,7 +21,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example", "**/__tests__"]
