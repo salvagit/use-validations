@@ -10,7 +10,7 @@ function isPrototype(value: {}) {
 }
 
 function isEmpty(value: unknown) {
-  if (value == null) {
+  if (value === null) {
     return true;
   }
 
