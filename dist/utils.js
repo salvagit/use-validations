@@ -6,7 +6,7 @@ function isPrototype(value) {
     return value === proto;
 }
 function isEmpty(value) {
-    if (value == null) {
+    if (value === null) {
         return true;
     }
     if (Array.isArray(value) ||
