@@ -6,11 +6,11 @@ export type HandleInputChangeType = (
   value: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 ) => void;
 
+export type Validators<T> = { [field: string]: (v: string, data?: T) => string | null };
+
 export type HookParams<T> = {
   defaultData: T,
-  validators: {
-    [field: string]: (v: string, data?: T) => string | null;
-  }
+  validators: Validators<T>
 }
 
 export type Stringify<T> = {
