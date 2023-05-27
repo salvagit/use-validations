@@ -9,4 +9,4 @@ export type HookParams<T> = {
 export type Stringify<T> = {
     [K in keyof T]?: string | null;
 };
-export type Errors<T> = Stringify<T> | {};
+export type Errors<T> = Stringify<T>;

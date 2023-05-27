@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isString = exports.isEmpty = void 0;
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 const objectProto = Object.prototype;
 function isPrototype(value) {
@@ -26,6 +23,5 @@ function isEmpty(value) {
     }
     return true;
 }
-exports.isEmpty = isEmpty;
 const isString = (value) => typeof value === "string";
-exports.isString = isString;
+export { isEmpty, isString };
