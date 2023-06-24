@@ -1,6 +1,6 @@
 {
   "name": "use-validations",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "custom hook validator.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
