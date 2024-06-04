@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { isEmpty, isString } from "./utils";
 import { HandleInputChangeType, HookParams, Errors } from "./types";
 
@@ -12,6 +12,8 @@ function useValidations<T>({ defaultData, validators }: HookParams<T>): {
   resetData: () => void;
 } {
   const [data, setData] = useState<T>(defaultData);
+
+  useEffect(() => setData(defaultData), [defaultData]);
 
   const [errors, setErrors] = useState<Errors<T>>({});
 
