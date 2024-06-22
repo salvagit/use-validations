@@ -9,8 +9,8 @@ export type HandleInputChangeType = (
 export type Validators<T> = { [field: string]: (v: string, data?: T) => string | null };
 
 export type HookParams<T> = {
-  defaultData: T,
-  validators: Validators<T>
+  defaultData?: Partial<T>,
+  validators: Validators<T | {}>
 }
 
 export type Stringify<T> = {

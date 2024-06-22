@@ -3,7 +3,7 @@ import { isEmpty, isString } from "./utils";
 import { HandleInputChangeType, HookParams, Errors } from "./types";
 
 function useValidations<T>({ defaultData, validators }: HookParams<T>): {
-  data: T;
+  data: Partial<T> | undefined;
   errors: Errors<T>;
   emptyForm: boolean;
   handleInputChange: HandleInputChangeType;
@@ -11,14 +11,20 @@ function useValidations<T>({ defaultData, validators }: HookParams<T>): {
   doValidate: () => boolean;
   resetData: () => void;
 } {
-  const [data, setData] = useState<T>(defaultData);
+  const [data, setData] = useState<Partial<T> | undefined>(defaultData);
 
-  useEffect(() => setData(defaultData), [defaultData]);
+  useEffect(() => {
+    if (!defaultData) {
+      return;
+    }
+
+    setData(defaultData)
+  }, [defaultData]);
 
   const [errors, setErrors] = useState<Errors<T>>({});
 
   const hasErrors = Object.values(errors as Errors<T>).some(isString);
-  const emptyForm = data && Object.values(data).every(isEmpty);
+  const emptyForm = !!data && Object.values(data).every(isEmpty);
 
   const handleInputChange =
     (field: string) =>
@@ -31,7 +37,7 @@ function useValidations<T>({ defaultData, validators }: HookParams<T>): {
         setErrors({ ...errors, [field]: validators[field](value, data) });
       }
 
-      setData((prevData: T) => ({ ...prevData, [field]: value }));
+      setData((prevData) => ({ ...prevData, [field]: value }));
     };
 
   const doValidate = () => {
