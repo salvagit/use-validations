@@ -5,11 +5,12 @@ import { HandleInputChangeType, HookParams, Errors } from "./types";
 function useValidations<T>({ defaultData, validators }: HookParams<T>): {
   data: Partial<T> | undefined;
   errors: Errors<T>;
-  emptyForm: boolean;
+  isEmptyForm: boolean;
   handleInputChange: HandleInputChangeType;
   hasErrors: boolean;
   doValidate: () => boolean;
   resetData: () => void;
+  cleanData: () => void;
 } {
   const [data, setData] = useState<Partial<T> | undefined>(defaultData);
 
@@ -24,7 +25,7 @@ function useValidations<T>({ defaultData, validators }: HookParams<T>): {
   const [errors, setErrors] = useState<Errors<T>>({});
 
   const hasErrors = Object.values(errors as Errors<T>).some(isString);
-  const emptyForm = !!data && Object.values(data).every(isEmpty);
+  const isEmptyForm = !!data && Object.values(data).every(isEmpty);
 
   const handleInputChange =
     (field: string) =>
@@ -62,14 +63,19 @@ function useValidations<T>({ defaultData, validators }: HookParams<T>): {
     setData(defaultData);
   };
 
+  const cleanData = () => {
+    setData({});
+  };
+
   return {
     data,
-    emptyForm,
+    isEmptyForm,
     errors,
     handleInputChange,
     hasErrors,
     doValidate,
     resetData,
+    cleanData,
   };
 }
 
