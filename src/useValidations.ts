@@ -65,6 +65,7 @@ function useValidations<T>({ defaultData, validators }: HookParams<T>): {
 
   const cleanData = () => {
     setData({});
+    setErrors({});
   };
 
   return {
